@@ -2,44 +2,38 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { withStyles } from '@material-ui/core/styles';
-
+import styled from 'styled-components';
 import { Textfit } from 'react-textfit';
+import { ResponsiveContainer, LineChart, Line, XAxis } from 'recharts'
 
-import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
-  Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
-  BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ComposedChart,
-  RadialBarChart, RadialBar, Treemap, ReferenceLine } from 'recharts'
+const Root = styled.div`
+    width: 100%;
+    height: 100%;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+`;
 
-const styles = theme => ({
-    root: {
-        // background: '#FFFFFF',
-        width: '100%',
-        height: '100%',
-        paddingLeft: theme.spacing.unit * 3,
-        paddingTop: theme.spacing.unit * 2,
-        paddingRight: theme.spacing.unit * 3,
-        paddingBottom: theme.spacing.unit * 2,
-    },
-    title: {
-        height: '15%',
-        fontWeight: 500,
-    },
-    icon: {
-        marginRight: theme.spacing.unit * 1,
-    },
-    value: {
-        height: '25%',
-        fontWeight: 700,
-    },
-    chartContainer: {
-        marginTop: '5%',
-    }
-});
+const TextfitTitle = styled(Textfit)`
+    height: 30%;
+    font-weight: 500;
+`;
+
+const Icon = styled.span`
+    margin-right: 8px;
+`;
+
+const TextfitValue = styled(Textfit)`
+    height: 70%;
+    fontWeight: 700;
+`;
+
+const ChartContainer = styled(ResponsiveContainer)`
+    margin-top: 5%;
+`;
 
 class NumberWithChartWidget extends React.Component {
-
     constructor (props) {
         super(props)
 
@@ -65,38 +59,34 @@ class NumberWithChartWidget extends React.Component {
         const { left, right } = this.state;
 
         return (
-            <div
-                className={classes.root}
+            <Root
                 style={{ background: this.props.backgroundColor }}>
-                <Textfit
+                <TextfitTitle
                    mode="single"
                    min={12}
                    max={28}
                    forceSingleModeWidth={false}
-                   className={classes.title}
                    style={{color: this.props.defaultColor}}>
-                   <span className={classes.icon}>
+                   <Icon>
                        {icon !== undefined && icon}
-                   </span>
+                   </Icon>
                    <span>
                        {title}
                    </span>
-                </Textfit>
+                </TextfitTitle>
 
-                <Textfit
+                <TextfitValue
                     mode="single"
                     min={12}
                     max={200}
                     forceSingleModeWidth={false}
-                    className={classes.value}
                     style={{color: valueColor ? valueColor : defaultColor}}>
                     {data[data.length-1].value.toFixed(0).toLocaleString() + unit}
-                </Textfit>
+                </TextfitValue>
 
-                <ResponsiveContainer
+                <ChartContainer
                     width={'100%'}
-                    height={'55%'}
-                    className={classes.chartContainer}>
+                    height={'55%'}>
                     <LineChart
                         data={data}>
                         <XAxis
@@ -116,8 +106,8 @@ class NumberWithChartWidget extends React.Component {
                             animationEasing={'linear'}
                             animationDuration={1000} />
                     </LineChart>
-                </ResponsiveContainer>
-            </div>
+                </ChartContainer>
+            </Root>
         )
     }
 }
@@ -127,4 +117,4 @@ NumberWithChartWidget.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(NumberWithChartWidget);
+export default NumberWithChartWidget;

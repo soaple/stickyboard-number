@@ -4,18 +4,20 @@
   "description": "Number components for StickyBoard",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "recharts",
     "start": "webpack --watch",
     "build": "webpack"
   },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-textfit": "^1.1.0",
+    "recharts": "^1.6.2",
     "styled-components": "^4.3.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soaple/stickyboard-highcharts.git"
+    "url": "git+https://github.com/soaple/stickyboard-number.git"
   },
   "keywords": [
     "stickyboard",
@@ -25,9 +27,9 @@
   "author": "soaple",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/soaple/stickyboard-highcharts/issues"
+    "url": "https://github.com/soaple/stickyboard-number/issues"
   },
-  "homepage": "https://github.com/soaple/stickyboard-highcharts#readme",
+  "homepage": "https://github.com/soaple/stickyboard-number#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
