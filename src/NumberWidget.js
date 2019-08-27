@@ -30,8 +30,6 @@ const TextfitValue = styled(Textfit)`
 
 class NumberWidget extends React.Component {
     render () {
-        const { classes, theme } = this.props;
-
         return (
             <Root
                 style={{ background: this.props.backgroundColor }}>
@@ -61,10 +59,5 @@ class NumberWidget extends React.Component {
         )
     }
 }
-
-NumberWidget.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
 
 export default NumberWidget;

@@ -52,11 +52,9 @@ class NumberWithChartWidget extends React.Component {
     }
 
     render () {
-        const { classes, theme } = this.props;
+        const { left, right } = this.state;
         const { icon, backgroundColor, defaultColor,
             valueColor, title, unit, data } = this.props;
-
-        const { left, right } = this.state;
 
         return (
             <Root
@@ -111,10 +109,5 @@ class NumberWithChartWidget extends React.Component {
         )
     }
 }
-
-NumberWithChartWidget.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
 
 export default NumberWithChartWidget;
