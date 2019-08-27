@@ -16,7 +16,7 @@ const Root = styled.div`
 `;
 
 const TextfitTitle = styled(Textfit)`
-    height: 30%;
+    height: 15%;
     font-weight: 500;
 `;
 
@@ -25,8 +25,8 @@ const Icon = styled.span`
 `;
 
 const TextfitValue = styled(Textfit)`
-    height: 70%;
-    fontWeight: 700;
+    height: 25%;
+    font-weight: 700;
 `;
 
 const ChartContainer = styled(ResponsiveContainer)`

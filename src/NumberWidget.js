@@ -25,7 +25,7 @@ const Icon = styled.span`
 
 const TextfitValue = styled(Textfit)`
     height: 70%;
-    fontWeight: 700;
+    font-weight: 700;
 `;
 
 class NumberWidget extends React.Component {
