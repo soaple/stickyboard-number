@@ -8,15 +8,18 @@ import { Textfit } from 'react-textfit';
 const Root = styled.div`
     width: 100%;
     height: 100%;
-    padding-left: 24px;
-    padding-top: 16px;
-    padding-right: 24px;
-    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
 `;
 
 const TextfitTitle = styled(Textfit)`
-    height: 30%;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
+    color: ${props => props.color ? props.color : '##9b9b9b'};
 `;
 
 const Icon = styled.span`
@@ -24,8 +27,10 @@ const Icon = styled.span`
 `;
 
 const TextfitValue = styled(Textfit)`
-    height: 70%;
+    flex: 2;
+    justify-content: flex-end;
     font-weight: 700;
+    color: ${props => props.color ? props.color : '##9b9b9b'};
 `;
 
 class NumberWidget extends React.Component {
@@ -38,7 +43,7 @@ class NumberWidget extends React.Component {
                     min={12}
                     max={28}
                     forceSingleModeWidth={false}
-                    style={{color: this.props.defaultColor}}>
+                    color={this.props.defaultColor}>
                     <Icon>
                         {this.props.icon !== undefined && this.props.icon}
                     </Icon>
@@ -52,7 +57,7 @@ class NumberWidget extends React.Component {
                     min={12}
                     max={200}
                     forceSingleModeWidth={false}
-                    style={{color: this.props.valueColor ? this.props.valueColor : this.props.defaultColor}}>
+                    color={this.props.valueColor ? this.props.valueColor : this.props.defaultColor}>
                     {this.props.value.toLocaleString() + this.props.unit}
                 </TextfitValue>
             </Root>

@@ -9,15 +9,18 @@ import { ResponsiveContainer, LineChart, Line, XAxis } from 'recharts'
 const Root = styled.div`
     width: 100%;
     height: 100%;
-    padding-left: 24px;
-    padding-top: 16px;
-    padding-right: 24px;
-    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
 `;
 
 const TextfitTitle = styled(Textfit)`
-    height: 15%;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
+    color: ${props => props.color ? props.color : '##9b9b9b'};
 `;
 
 const Icon = styled.span`
@@ -25,12 +28,13 @@ const Icon = styled.span`
 `;
 
 const TextfitValue = styled(Textfit)`
-    height: 25%;
+    flex: 2;
     font-weight: 700;
+    color: ${props => props.color ? props.color : '##9b9b9b'};
 `;
 
 const ChartContainer = styled(ResponsiveContainer)`
-    margin-top: 5%;
+    margin-top: 8px;
 `;
 
 class NumberWithChartWidget extends React.Component {
