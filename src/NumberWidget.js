@@ -11,6 +11,7 @@ const Root = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px 24px;
+    border-radius: 8px;
 `;
 
 const TextfitTitle = styled(Textfit)`

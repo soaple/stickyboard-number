@@ -12,6 +12,7 @@ const Root = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px 24px;
+    border-radius: 8px;
 `;
 
 const TextfitTitle = styled(Textfit)`
@@ -64,21 +65,21 @@ class NumberWithChartWidget extends React.Component {
             <Root
                 style={{ background: this.props.backgroundColor }}>
                 <TextfitTitle
-                   mode="single"
-                   min={12}
-                   max={28}
-                   forceSingleModeWidth={false}
-                   style={{color: this.props.defaultColor}}>
-                   <Icon>
-                       {icon !== undefined && icon}
-                   </Icon>
-                   <span>
-                       {title}
-                   </span>
+                    mode='single'
+                    min={12}
+                    max={28}
+                    forceSingleModeWidth={false}
+                    style={{color: this.props.defaultColor}}>
+                    <Icon>
+                        {icon !== undefined && icon}
+                    </Icon>
+                    <span>
+                        {title}
+                    </span>
                 </TextfitTitle>
 
                 <TextfitValue
-                    mode="single"
+                    mode='single'
                     min={12}
                     max={200}
                     forceSingleModeWidth={false}
@@ -92,6 +93,7 @@ class NumberWithChartWidget extends React.Component {
                     <LineChart
                         data={data}>
                         <XAxis
+                            hide={true}
                             dataKey='time'
                             padding={{left: left, right: right}}
                             domain={['dataMin -5', 'dataMax + 5']}
