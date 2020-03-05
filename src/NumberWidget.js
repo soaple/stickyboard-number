@@ -36,20 +36,30 @@ const TextfitValue = styled(Textfit)`
 
 class NumberWidget extends React.Component {
     render () {
+        const {
+            defaultColor,
+            backgroundColor,
+            valueColor,
+            icon,
+            title,
+            value,
+            unit,
+        } = this.props;
+
         return (
             <Root
-                style={{ background: this.props.backgroundColor }}>
+                style={{ background: backgroundColor }}>
                 <TextfitTitle
                     mode="single"
                     min={12}
                     max={28}
                     forceSingleModeWidth={false}
-                    color={this.props.defaultColor}>
+                    color={defaultColor}>
                     <Icon>
-                        {this.props.icon !== undefined && this.props.icon}
+                        {icon && icon}
                     </Icon>
                     <span>
-                        {this.props.title}
+                        {title}
                     </span>
                 </TextfitTitle>
 
@@ -58,8 +68,8 @@ class NumberWidget extends React.Component {
                     min={12}
                     max={200}
                     forceSingleModeWidth={false}
-                    color={this.props.valueColor ? this.props.valueColor : this.props.defaultColor}>
-                    {this.props.value.toLocaleString() + this.props.unit}
+                    color={valueColor ? valueColor : defaultColor}>
+                    {`${value.toLocaleString()}${unit}`}
                 </TextfitValue>
             </Root>
         )
